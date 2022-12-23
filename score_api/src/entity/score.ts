@@ -11,16 +11,16 @@ import User from './user';
  *  Score:
  *      type: object
  *      required:
- *          - player_z
- *          - player_x
+ *          - playerZ
+ *          - playerX
  *      properties:
- *          player_x:
+ *          playerX:
  *              type: string
- *          player_x_score:
+ *          playerXScore:
  *              type: number
- *          player_z:
+ *          playerZ:
  *              type: string
- *          player_z_score:
+ *          playerZScore:
  *              type: number
  */
 @Entity({ name: 'scores', schema: env.database})

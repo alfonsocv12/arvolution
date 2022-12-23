@@ -26,3 +26,18 @@ services:
             - "score_db"
         volumes:
             - "./score_api:/app"
+    score_ui:
+        container_name: score_ui
+        build:
+            context: .
+            dockerfile: ./score_ui/Dockerfile
+        environment:
+            - API_ENVIRONMENT=dev
+        ports:
+            - "1024:1024"
+        links:
+            - "score_api:scored_api"
+        depends_on:
+            - "score_api"
+        volumes:
+            - "./score_ui:/app"

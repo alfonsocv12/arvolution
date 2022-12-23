@@ -13,5 +13,5 @@ $ docker-compose up
 ```
 
 * Api will be on port 3000
-* UI will be on port 80
+* UI will be on port 1024
 * Database on port 5432

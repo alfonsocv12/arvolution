@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+    plattuit_db:
+        container_name: score_db
+        build: ./score_db
+        restart: always
+        ports:
+          - "5432:5432"
+        environment:
+          - POSTGRES_USER=admin
+          - POSTGRES_PASSWORD=ohg091nkjv
+          - POSTGRES_DB=score_db
+    score_api:
+        container_name: score_api
+        build:
+            context: .
+            dockerfile: ./score_api/Dockerfile
+        environment:
+            - API_ENVIRONMENT=dev
+        ports:
+            - "3000:3000"
+        links:
+            - "score_db:scored_db"
+        depends_on:
+            - "score_db"
+        volumes:
+            - "./score_api:/app"
